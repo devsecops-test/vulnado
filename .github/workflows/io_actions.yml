@@ -34,10 +34,10 @@ jobs:
         ioServerUrl: ${{secrets.ORG_IO_SERVER_URL}}
         ioServerToken: ${{secrets.ORG_IO_SERVER_TOKEN}}
         workflowServerUrl: ${{secrets.ORG_WORKFLOW_SERVER_URL}}
-        workflowVersion: 2021.12.3
+        workflowVersion: 2022.4.0
         manifestType: yml
-        ioProjectName: vulnado
-        additionalWorkflowArgs: --persona=$persona --release.type=$release_type --asset.id=$ioProjectName --polaris.url=${{secrets.ORG_POLARIS_SERVER_URL}} 
+        ioProjectName: devsecops-vulnado
+        additionalWorkflowArgs: --persona=$persona --release.type=$release_type --asset.id=$ioProjectName --project.name=$ioProjectName --polaris.url=${{secrets.ORG_POLARIS_SERVER_URL}} 
                 --polaris.token=${{secrets.ORG_POLARIS_ACCESS_TOKEN}} --codedx.url="http://23.99.131.170:8080/codedx" --codedx.project.id=3 --codedx.api.key=${{secrets.ORG_CODEDX_API_KEY}}
         stage: "IO"
     
@@ -79,10 +79,10 @@ jobs:
         ioServerUrl: ${{secrets.ORG_IO_SERVER_URL}}
         ioServerToken: ${{secrets.ORG_IO_SERVER_TOKEN}}
         workflowServerUrl: ${{secrets.ORG_WORKFLOW_SERVER_URL}}
-        workflowVersion: 2021.12.3
+        workflowVersion: 2022.4.0
         manifestType: yml
-        ioProjectName: vulnado
-        additionalWorkflowArgs: --persona=$persona --asset.id=$ioProjectName --slack.channel.id=C015LGE7RRQ --slack.token=${{secrets.ORG_SLACK_TOKEN}} 
+        ioProjectName: devsecops-vulnado
+        additionalWorkflowArgs: --persona=$persona --asset.id=$ioProjectName --project.name=$ioProjectName --slack.channel.id=C015LGE7RRQ --slack.token=${{secrets.ORG_SLACK_TOKEN}} 
                 --jira.project.name=VUL --jira.assignee="rahulgu@synopsys.com" --jira.api.url="https://demo-sig-jira.atlassian.net" --jira.username=rahulgu@synopsys.com --jira.auth.token=${{secrets.ORG_JIRA_TOKEN}}
                 --IS_SAST_ENABLED=${{steps.prescription.outputs.sastScan}} --IS_SCA_ENABLED=${{steps.prescription.outputs.scaScan}} --IS_DAST_ENABLED=false
                 --polaris.project.name=sig-devsecops/vulnado --polaris.url=${{secrets.ORG_POLARIS_SERVER_URL}} --polaris.token=${{secrets.ORG_POLARIS_ACCESS_TOKEN}} 
