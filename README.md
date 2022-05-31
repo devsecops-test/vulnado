@@ -15,7 +15,6 @@ This application and exercises will take you through some of the OWASP top 10 Vu
 
 The docker network created by `docker-compose` maps pretty well to a multi-tier architecture where a web server is available and there are other network resources like a database and internal site that are not publicly available. Test
 
-
 ![](exercises/assets/arch.png)
 
 ## Exercises
