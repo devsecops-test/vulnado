@@ -25,4 +25,3 @@ The docker network created by `docker-compose` maps pretty well to a multi-tier 
 * [SSRF - Server Side Request Forgery](exercises/03-ssrf.md)
 * [RCE - Remote Code Execution & Reverse Shell](exercises/04-rce-reverse-shell.md)
 
-
