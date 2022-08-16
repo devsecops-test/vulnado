@@ -3,12 +3,12 @@ install:
   coverity:
     version: latest
 project:
-  name: "sig-devsecops/vulnado"
-  branch: "origin/devsecops"
+  name: ${scm.git.repo}
+  branch: ${scm.git.branch}
   revision:
-    name: "sig-devsecops/vulnado"
-    date: "2020-10-01T14:25:30Z"
-  captureDir: .synopsys/polaris
+    name: ${scm.git.commit}
+    date: ${scm.git.commit.date}
+    modified: ${scm.git.modified}
 capture:
   coverity:
     buildless:
