@@ -15,7 +15,7 @@ pipeline {
           echo 'API call to IO controller to get prescription & trigger scans on Code Dx'
           def res = sh(script: "curl -d '{\"ioProjectName\": \"devsecops-vulnado\", \"cdxProjectId\": \"3\", \"gitProjectName\": \"vulnado\", \"gitBranch\": \"dev\"}' -H 'Content-Type: application/json' http://localhost:49160/code-tx", returnStdout: true)
           resJSON = readJSON text: res;
-          echo resJSON
+          echo resJSON.toString()
         }
       }
     }
