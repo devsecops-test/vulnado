@@ -52,8 +52,8 @@ pipeline {
       steps {
         script {
           echo 'API call to IO controller to trigger post-build specific scans on Code Dx'
-          def res = sh(script: "curl -d '{\"cdxProjectId\": \"3\", \"buildDownloadLink\": \" \"}' -H 'Content-Type: application/json' http://localhost:49160/post-build-code-dx", returnStdout: true)
-          resJSON = readJSON text: res;
+//           def res = sh(script: "curl -d '{\"cdxProjectId\": \"3\", \"buildDownloadLink\": \" \"}' -H 'Content-Type: application/json' http://localhost:49160/post-build-code-dx", returnStdout: true)
+//           resJSON = readJSON text: res;
         }
       }
     }
