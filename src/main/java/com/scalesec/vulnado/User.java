@@ -163,7 +163,6 @@ public class User {
         String user_id = rs.getString("user_id");
         String username = rs.getString("username");
         String password = rs.getString("password");
-        String sourceCode = "source code update";
         user = new User(user_id, username, password);
       }
       cxn.close();
