@@ -13,7 +13,7 @@ pipeline {
       steps {
         script {
           echo 'API call to IO controller to get prescription & trigger scans on Code Dx'
-          def res = sh(script: "curl -d '{\"ioProjectName\": \"devsecops-vulnado\", \"cdxProjectId\": \"3\", \"gitProjectName\": \"poc-36-WebGoat\", \"gitBranch\": \"main\"}' -H 'Content-Type: application/json' http://localhost:49160/code-tx", returnStdout: true)
+          def res = sh(script: "curl -d '{\"ioProjectName\": \"devsecops-vulnado\", \"cdxProjectId\": \"3\", \"scmType\": \"github\", \"scmOwner\": \"devsecops-test\", \"scmProjectName\": \"vulnado\", \"scmBranch\": \"master\"}' -H 'Content-Type: application/json' http://localhost:49160/code-tx", returnStdout: true)
           resJSON = readJSON text: res;
         }
       }
@@ -28,20 +28,20 @@ pipeline {
 
     stage('Build') {
       steps {
-        sh '''mvn clean compile -Dmaven.test.skip=true'''
+        echo '''mvn clean compile -Dmaven.test.skip=true'''
       }
     }
 
     stage('Test') {
       steps {
-        sh '''mvn clean test'''
+        echo '''mvn clean test'''
       }
     }
 
     stage('Deploy') {
       steps {
         script {
-          sh '''mvn dependency:purge-local-repository'''
+          echo '''mvn dependency:purge-local-repository'''
           echo 'mvn deploy'
         }
       }
